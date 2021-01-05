@@ -16,9 +16,11 @@ function loadComments(gravatar) {
 }
 
 function newComment(e) {
-  comment = e.target.value
+  e.preventDefault()  
+  comment = e.target[0].value
   gravatar = document.getElementById("identicon-form")[0].value
-
+  e.target.reset()
+  
   fetch(`http://localhost:3000/comments`, {
     method: 'POST',
     headers: {
